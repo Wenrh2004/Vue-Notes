@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.definProperty</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let numeber = 18
+        let person = {
+            name:'张三',
+            sex:'男',
+        }
+        Object.defineProperty(person,'age',{
+            // value:18,
+            // enumerable:true, // 控制属性是否可以枚举，默认值是 false
+            // writable:true, // 控制属性是否可以被修改，默认值是 false
+            // configurable:true // 控制属性是否可以被删除，默认值是 false
+
+            // 当读取 person 的 age 属性时，get 函数(getter)被调用，且返回的值为 age 的值
+            get(){ // get:function(){}
+                return numeber
+            },
+            //  当修改 person 的 age 属性时，set 函数（setting）被调用，且会收到修改的具体值
+            set(value){
+                numeber = value
+            }
+        })
+        console.log(person);
+    </script>
+</body>
+</html>
